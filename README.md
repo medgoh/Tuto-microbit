@@ -1,293 +1,66 @@
-# Bonjour Taill'Créons va t'apprendre à faire un drôle d'enregistreur vocal
-TUTO Taill'Créons - drôle d'enregistreur vocal
-## Etape 1 - Bonjour Taill'Crons va t'apprendre à faire un drôle d'enregistreur vocal! @showdialog
-Suis bien les instructions à chaques étapes et clique sur SUIVANT pour passer aux prochaines étapes.
-N'hésite pas à cliquer sur le bouton d'aide en forme d'ampoule en cas de blocage. 
-Clique sur OK pour commencer.
+# Contributing
 
-## Etape 2: détecter un apuie sur le bouton A
-On veut que lorsque l'on appuie sur le bouton ``||input:A||`` du micro:bit, un enregistrement audio démarre.
-Dans la boite à outils, clique sur la section ``||input:Entrée||`` et déplace un bloc
-``||Input:Lorsque le bouton A est pressé||`` sur la droite.
-Clique sur ``|Next|``.
-``` blocks
-input.onButtonPressed(Button.A, function () {
-})
-``` 
+This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
+the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
 
-## Etape 3: Démarrer l'enregistrement
-Dans la boite à outils, clique sur la section ``||Record||`` et déplace le bloc ``||record.setSampleRate(10000, record.AudioSampleRateScope.Recording)||``
-à l'intérieur du  bloc ``||Input:Lorsque le bouton A est pressé||`` .  
+When you submit a pull request, a CLA bot will automatically determine whether you need to provide
+a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
+provided by the bot. You will only need to do this once across all repos using our CLA.
 
-``` blocks
-input.onButtonPressed(Button.A, function () {
- record.setSampleRate(10000, record.AudioSampleRateScope.Recording)
-})
-``` 
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-## Step 3
-Branche une pince crocodile sur la broche  ``||input:0||``  du microbit  
-Enfonce l'autre bout de la broche dans la patate.  
-Branche une pince crocodile noir sur la broche ``||input:GND||`` du microbit et tiens l'autre bout dans ta main
-Clique ensuite sur  ``|Télécharger|``  pour mettre le programme dans le microbit.  
-Touche la patate et écoute ton microbit !
+# Sample MakeCode Tutorial
 
-## Step 4
-Essaye de faire la même chose avec la broche ``||input:1||`` avec un autre patate placée à droite de la première et en sélectionnant un son différent  ``||Musique:triste||`` 
-    
-``` blocks
-input.onPinPressed(TouchPin.P0, function () {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.UntilDone)
-})
-input.onPinPressed(TouchPin.P1, function () {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.sad), SoundExpressionPlayMode.UntilDone)
-})
-``` 
+This repository is an example of how to host a MakeCode tutorial on Github. This particular tutorial is for MakeCode Arcade, but this is fully supported for micro:bit and Minecraft as well.
 
+## Creating a Tutorial
 
+To create your tutorial repository:
 
-## Step 5
-Fais sourire ton microbit lorsque la patate de gauche est touchée.  
-Dans la section  ``||basic:Base|`` , déplace le bloc  ``||basic:montrer l'icône||`` en dessous de la lecture du son heureux.  
-Choisir une icône de personnage souriant :) 
+* Open [https://arcade.makecode.com/](https://arcade.makecode.com/) (or makecode.microbit.org, minecraft.makecode.com)
+* Click on **New Project**
+* Give the project a descriptive name
+* Click on the **Github Icon** on the bottom toolbar next to the project name and sign in if prompted
+* Click **Go ahead**
 
-``` blocks
-input.onPinPressed(TouchPin.P0, function () {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Happy)
-})
-input.onPinPressed(TouchPin.P1, function () {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.sad), SoundExpressionPlayMode.UntilDone)
-})
-``` 
+This will make an empty MakeCode repository in your Github account.
 
-## Step 6
-Fais la même chose avec un personnage mécontent pour le son triste :(
+## Tutorial Files
 
-``` blocks
-input.onPinPressed(TouchPin.P0, function () {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Happy)
-})
-input.onPinPressed(TouchPin.P1, function () {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.sad), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Sad)
-})
-``` 
+By default, the content from the README file is loaded as a tutorial. You can view it using this URL:
 
-## Step 7
-Clique ensuite sur ``|Télécharger|``  pour mettre le programme dans le microbit.  
-Touche les patates, regarde et écoute ton microbit !
+> [http://arcade.makecode.com/#tutorial:https://github.com/microsoft/pxt-tutorial-sample](http://arcade.makecode.com/#tutorial:https://github.com/microsoft/pxt-tutorial-sample)
 
-## Step 8
-Faisons maintenant réfléchir notre microb:it. Nous allons lui demander de choisir un chiffre entre 1 et 2.  
-Si c'est 1: il veut que tu touches la patate gauche  
-Si c'est 2: il veut que ce soit la patate droite.
-Clique sur Suivant
+The url should be formatted as follows: `https://[editor URL]/#tutorial:[github-username]/[github-repository-name]`
 
-## Step 9
-Dans la section  ``||loops:Boucle||``, déplace le bloc  ``||loops:Chaque 500 ms||`` dans un endroit libre.  
-Modifie la valeur de 500 en 3000.  
-Ceci permettra à ton micro:bit de choisir entre gauche et droite toutes les 3 secondes (= 3000 millisecondes)
-``` blocks
-input.onPinPressed(TouchPin.P0, function () {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Happy)
-})
-input.onPinPressed(TouchPin.P1, function () {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.sad), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Sad)
-})
+You can also include additional tutorials in one repository. In this case, the `first-tutorial.md` and `second-tutorial.md`. If you add a new file, make sure it is included in the `files` list in `pxt.json`. If you add this file from the MakeCode Editor, it will be automatically updated. You can view these tutorials at the following URLs:
 
-loops.everyInterval(3000, function () {
-}
-``` 
+> [http://arcade.makecode.com/#tutorial:https://github.com/microsoft/pxt-tutorial-sample/first-tutorial](http://arcade.makecode.com/#tutorial:https://github.com/microsoft/pxt-tutorial-sample/first-tutorial)
 
+> [http://arcade.makecode.com/#tutorial:https://github.com/microsoft/pxt-tutorial-sample/second-tutorial](http://arcade.makecode.com/#tutorial:https://github.com/microsoft/pxt-tutorial-sample/second-tutorial)
 
-## Step 10
-Dans la section  ``||variables:Variables||``, crée une variable avec comme nom  ``||variables:sens||``,  pour se mémoriser le sens droite ou gauche que le micro:bit aura choisi.    
-Déplace le bloc ``||variables:définir sens à 0||`` à l'intérieur du bloc ``||loops:Chaque 3000 ms||``.
+The url should be formatted as follows: `https://[editor URL]/#tutorial:[github-username]/[github-repository-name]/[path-to-tutorial]`
 
-``` blocks
-input.onPinPressed(TouchPin.P0, function () {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Happy)
-})
-input.onPinPressed(TouchPin.P1, function () {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.sad), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Sad)
-})
+## Custom Blocks
 
-loops.everyInterval(3000, function () {
-sens =0
-}
-``` 
+A repository containing a tutorial may also contain custom blocks for use in the tutorial. The `custom.ts` file here exports two functions as blocks. These blocks can then be used in any tutorial in the same repository. As with new tutorial files, make sure any new TypeScript files are added to the list in `pxt.json`.
 
-## Step 13
-Dans la section  ``||math:Maths||``, déplace le bloc  ``||math:choisir au hasard de 0 à 10||`` à la place de la valeur 0 du bloc
- ``||variables:définir sens à 0||`` , puis change les nombres pour mettre entre 1 et 2.  
-Rappel: 1 = Gauche et 2= Droite
-``` blocks
-input.onPinPressed(TouchPin.P0, function () {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Happy)
-})
-input.onPinPressed(TouchPin.P1, function () {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.sad), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Sad)
-})
+## Custom Localization
 
-loops.everyInterval(3000, function () {
-sens = randint(1, 2)
-}
-``` 
+Localized versions of the tutorial can also be added to the repository, under a `_locales` folder. This folder contains a list of sub-directories with the correctly capitalized language code (eg. zh-CN, de-DE). The localized tutorial should have the same file name as the base tutorial. To view a localized version of the tutorial, add `?lang=[language-code]` to the URL, as follows:
 
+> [http://arcade.makecode.com?lang=zh-CN#tutorial:https://github.com/microsoft/pxt-tutorial-sample/first-tutorial](http://arcade.makecode.com?lang=zh-CN#tutorial:https://github.com/microsoft/pxt-tutorial-sample/first-tutorial)
 
-## Step 14
-Rappel toi: on veut que le micro:bit choissise la patate de gauche si c'est 1 et de droite si c'est 2.  
-Dans la section ``||logic:Logique||``, déplace le bloc ``||logic:si vrai alors||`` en dessous du bloc 
-``||variables:définir sens à choisir au hasard de 1 à 2||``
+## Creating a Release
 
-``` blocks
+When you update the Github repository, it make take up to 20 minutes for your changes to be reflected in the MakeCode editor, due to caching. To force an update, you will need to create a "release":
 
-loops.everyInterval(3000, function () {
-sens = randint(1, 2)
- if true {
- }
-}
-``` 
-
-## Step 15
-Dans la section ``||logic:Logique||``, prend le bloc ``||logic:0 = 0||`` et positionne le à la place de la valeur  ``||logic:vrai||``.  
-Puis remplace la valeur 0 de gauche avec la variable ``||variables:sens||`` dans la section  ``||variables:Variables||``.  
-Remplace ensuite la valeur 0 de droite par 1. 
-on vient de préparer ce que doit faire le microb:bit si il a choisit le sens Gauche (=1)
-``` blocks
-
-loops.everyInterval(3000, function () {
-sens = randint(1, 2)
- if (sens == 1) {
- }
-}
-``` 
-
-
-## Step 16
-Dans la section  ``||basic:Base|`` , déplace le bloc  ``||basic:montrer LEDs||`` en dessous du bloc   ``||logic:si sens = 1 alors||``
-et dessine une fléche vers la gauche
-
-``` blocks
-
-loops.everyInterval(3000, function () {
-sens = randint(1, 2)
- if (sens == 1) {
-  basic.showLeds(`
-            . . # . .
-            . # . . .
-            # # # # #
-            . # . . .
-            . . # . .
-            `)
- }
-}
-``` 
-
-## Step 17
-Clique sur le bouton  ``||logic:+|`` en bas à gauche du bloc ``||logic:si sens = 1 alors ||`` 
-et déplace un bloc ``||basic:montrer LEDs||`` pour dessiner  une fléche vers la droite
-On vient de finir la partie ou le micro:bit n'a pas choisit la gauche (donc la droite)
-``` blocks
-
-loops.everyInterval(3000, function () {
-sens = randint(1, 2)
- if (sens == 1) {
-  basic.showLeds(`
-            . . # . .
-            . # . . .
-            # # # # #
-            . # . . .
-            . . # . .
-            `)
- } else {
-        basic.showLeds(`
-            . . # . .
-            . . . # .
-            # # # # #
-            . . . # .
-            . . # . .
-            `)
-    }
-}
-``` 
-
-
-## Step 18
-Clique sur le bouton ``|Télécharger|``  pour mettre le programme dans ton microbit.  
-Observe le résultat.  
-Que se passe-t'il? Ton microbit est-t'il bien content lorsque tu choisis la même patate que lui?  
-
-
-## Step 19
-Il faut maintenant faire réagir ton microbit lorsque tu touches la patate de gauche et que c'est la même qu'il a choisi ou non.   
-Place ta patate branchée sur la broche  ``||input:P0||`` à gauche et celle sur  ``||input:P1||`` à droite.  
-Déplace un bloc ``||logic:si vrai alors||`` en dessous du bloc ``||input:lorsque la broche P0 est activée alors||`` 
-
-``` blocks
-input.onPinPressed(TouchPin.P0, function () {
-    if (true) {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Happy)
-         } 
-    
-})
-``` 
-
-## Step 20
-Remplace la valeur ``||logic:vrai||``  par un test logique permettant de savoir si la variable  ``||variables:sens||`` est égale à 1 (car 1 = gauche)  
-``` blocks
-input.onPinPressed(TouchPin.P0, function () {
-    if (sens == 1) {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Happy)
-         } 
-    
-})
-``` 
-
-
-## Step 21
-Clique sur le bouton ``||logic:+||``  afin de lui faire dire qu'il n'est pas content si ce n'est pas la bonne patate de gauche que tu as touché.  
-
-``` blocks
-input.onPinPressed(TouchPin.P0, function () {
-    if (sens == 1) {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Happy)
-         } else {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.sad), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Sad)     
-    }
-    
-})
-``` 
-
-## Step 22
-Essaye de faire la même chose avec la patate de droite 
-``` blocks
-input.onPinPressed(TouchPin.P1, function () {
-    if (sens == 1) {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.happy), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Happy)
-         } else {
-         music.playSoundEffect(music.builtinSoundEffect(soundExpression.sad), SoundExpressionPlayMode.UntilDone)
-         basic.showIcon(IconNames.Sad)     
-    }
-    
-})
-``` 
-
-
-## Step 23
-Clique sur le bouton ``|Télécharger|`` pour mettre le programme dans ton microbit et joue avec lui !   
-Tu pourrais maintenant accélerer son choix en baissant la valeur de 3000 à 2000 par exemple.
-On pourrait également avoir à la place des patates plein de fruits différents et essayer de trouver le fruit qu'il a choisi.  
+* Open [https://arcade.makecode.com/](https://arcade.makecode.com/) (or makecode.microbit.org, minecraft.makecode.com)
+* Click on **Import** on the right-hand side above the row of your projects
+* Select **Your Github Repo** and sign into Github if prompted
+* Select the repository with your tutorial
+* In the MakeCode editor, click the **Github Icon** on the bottom toolbar by the project name
+* In the **Release Zone** section of the page, click **Create a Release** and select whichever release type feels most appropriate.
