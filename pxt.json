@@ -9,7 +9,8 @@
         "main.blocks",
         "main.ts",
         "README.md",
-        "micro-led.md"
+        "micro-led.md",
+	"drole.md"
     ],
     "testFiles": [
         "test.ts"
